@@ -1,5 +1,5 @@
 # Buscamos el grupo
-$grupo = Get-MgGroup -Filter "DisplayName eq 'CloudEngineer'"
+$grupo = Get-MgGroup -Filter "DisplayName eq 'CloudEngineers'"
 
 #Actualizar nombre de grupo
 Update-MgGroup -GroupId $grupo.Id -DisplayName "CloudEngineers"
