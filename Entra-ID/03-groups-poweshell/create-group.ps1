@@ -1,6 +1,6 @@
 #Primero tenemos que solicitar permisos espcificos para poder manejar los grupos y manejar usuarios.
 
-Connect-MgGraph -TenantId "cloudjourney.me" -Scopes "Group.ReadWrite.All", "User.Read.All"
+Connect-MgGraph -Scopes "Group.ReadWrite.All", "User.Read.All"
 
 # 1. Definimos los parámetros del grupo
 $groupParams = @{
