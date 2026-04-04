@@ -1,0 +1,20 @@
+az network vnet create \
+    --name VNet-BackEnd \
+    --resource-group RG-Networking-Lab \
+    --location eastus \
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name Subnet-Database \
+    --address-prefixes 10.1.1.0/24
+
+
+az network nsg create \
+    --resource-group RG-Networking-Lab \
+    --name NSG-FrontEnd \
+    --location eastus
+
+az network vnet subnet update \
+    --resource-group RG-Networking-Lab \
+    --vnet-name VNet-BackEnd \
+    --name Subnet-Database \
+    --network-security-group NSG-FrontEnd
+    
