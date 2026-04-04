@@ -1,0 +1,8 @@
+# 1. Listar todas las suscripciones asociadas a la cuenta (en formato tabla para mejor lectura)
+az account list --output table
+
+# 2. Establecer la suscripción de los créditos como la activa (reemplaza con tu ID)
+az account set --subscription "a87c92b3-255f-4eb7-ba4e-e50b505cf993"
+
+# 3. Confirmar que estás trabajando en la suscripción correcta
+az account show

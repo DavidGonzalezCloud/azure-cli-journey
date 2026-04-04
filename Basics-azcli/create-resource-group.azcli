@@ -1,0 +1,6 @@
+# Crear el Grupo de Recursos
+# rg = Resource Group | cloudjourney = proyecto | dev = entorno
+az group create --name rg-cloudjourney --location eastus --tags environment=dev
+
+# Listar los grupos de recursos creados en la suscripción activa
+az group list --output table

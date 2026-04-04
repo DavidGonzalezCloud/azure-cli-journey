@@ -1,0 +1,6 @@
+az network vnet create \
+    --name Vnet-CloudJourney \
+    --resource-group RG-networking-Lab \
+    --adress-prefixes 10.0.0.0/16 \
+    --subnet-name Subnet-Frontend \
+    --subnet-adress-prefix 10.0.1.0/24
