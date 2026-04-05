@@ -17,4 +17,20 @@ az network vnet subnet update \
     --vnet-name VNet-BackEnd \
     --name Subnet-Database \
     --network-security-group NSG-FrontEnd
-    
+
+az network nic create \
+    --resource-group RG-Networking-Lab \
+    --name NIC-BackEnd \
+    --vnet-name VNet-BackEnd \
+    --subnet Subnet-Database \
+    --location eastus
+
+az vm create \
+    --resource-group RG-Networking-Lab \
+    --name VM-Backend-DB \
+    --location eastus \
+    --image Ubuntu2204 \
+    --size Standard_B1s \
+    --admin-username cloudadmin \
+    --nics NIC-BackEnd \
+    --generate-ssh-keys
