@@ -1,0 +1,25 @@
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - python3
+write_files:
+  - owner: www-data:www-data
+    path: /var/www/html/index.html
+    content: |
+      <!DOCTYPE html>
+      <html>
+      <body style="background-color: #F8F9FA; color: #212529; font-family: sans-serif; text-align: center; padding-top: 100px;">
+        <h1>Cloud Journey</h1>
+        <h2>Infraestructura de Alta Disponibilidad</h2>
+        <p>Respondiendo exitosamente desde el clúster detrás del Load Balancer</p>
+        <div style="background-color: #0078D4; color: white; padding: 15px; display: inline-block; border-radius: 8px; font-weight: bold; margin-top: 20px;">
+          Trafico enrutado por Azure ALB
+        </div>
+        <footer style="margin-top: 80px; color: #0B1120;">
+          <span style="color: #00BCF2;">&#9632;</span> Nodo Activo
+        </footer>
+      </body>
+      </html>
+runcmd:
+  - systemctl restart nginx
