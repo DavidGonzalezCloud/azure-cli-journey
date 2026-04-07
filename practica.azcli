@@ -9,7 +9,7 @@ az network vnet create \
 
 az network nsg create \
     --resource-group RG-Networking-Lab \
-    --name NSG-FrontEnd \
+    --name NSG-BackEnd \
     --location eastus
 
 az network vnet subnet update \
