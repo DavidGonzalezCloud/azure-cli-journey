@@ -1,0 +1,18 @@
+# De FrontEnd hacia Backend
+
+az network vnet peering create \
+    --name Peering-Front-to-Back \
+    --resource-group RG-Networking-Lab \
+    --vnet-name VNet-CloudJourney \
+    --remote-vnet VNet-BackEnd \
+    --allow-vnet-access
+
+
+# De BackEnd hacia FrontEnd
+
+az network vnet peering create \
+    --name Peering-Back-to-Front \
+    --resource-group RG-Networking-Lab \
+    --vnet-name Vnet-BackEnd \
+    --remote-vnet VNet-CloudJourney \
+    --allow-vnet-access

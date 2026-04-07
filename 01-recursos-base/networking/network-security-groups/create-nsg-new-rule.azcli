@@ -1,0 +1,28 @@
+az network nsg rule create \
+    --resource-group RG-Networking-Lab \
+    --nsg-name NSG-FrontEnd \
+    --name Allow-SSH-Inbound \
+    --priority 100 \
+    --source-address-prefixes '*' \
+    --source-port-ranges '*' \
+    --destination-address-prefixes '*' \
+    --destination-port-ranges '22' \
+    --access Allow \
+    --protocol Tcp \
+    --direction Inbound \
+    --description "Permitir administracion por SSH"
+
+
+az network nsg rule create \
+    --resource-group RG-Networking-Lab \
+    --nsg-name NSG-FrontEnd \
+    --name Allow-HTTP-Inbound \
+    --priority 110 \
+    --source-address-prefixes '*' \
+    --source-port-ranges '*' \
+    --destination-address-prefixes '*' \
+    --destination-port-ranges 80 \
+    --access Allow \
+    --protocol Tcp \
+    --direction Inbound \
+    --description "Permitir trafico web de usuarios"

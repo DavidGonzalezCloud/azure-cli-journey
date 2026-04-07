@@ -1,0 +1,6 @@
+az network vnet peering show \
+    --resource-group RG-Networking-Lab \
+    --vnet-name VNet-CloudJourney \
+    --name Peering-Front-to-Back \
+    --query peeringState \
+    --output tsv

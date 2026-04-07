@@ -1,5 +1,0 @@
-# 1. Crear el Network Security Group (NSG)
-az network nsg create \
-    --resource-group RG-Networking-Lab \
-    --name NSG-FrontEnd \
-    --location eastus 

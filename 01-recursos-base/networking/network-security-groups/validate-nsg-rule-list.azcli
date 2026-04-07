@@ -1,0 +1,8 @@
+# Esto sirve para listar las reglas que hemos creado en un grupo de seguridad.
+
+# Con esto validamos que las reglas que creamos existen.
+
+az network nsg rule list \
+    --resource-group RG-Networking-Lab \
+    --nsg-name NSG-FrontEnd \
+    --output table

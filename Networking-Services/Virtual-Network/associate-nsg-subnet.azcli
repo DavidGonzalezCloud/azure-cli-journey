@@ -1,5 +1,0 @@
-az network vnet subnet update \
-    --resource-group RG-Networking-Lab \
-    --vnet-name Vnet-CloudJourney \
-    --name Subnet-Frontend \
-    --network-security-group NSG-FrontEnd

@@ -1,0 +1,4 @@
+az group delete \
+    --name rg-portfolio-alb \
+    --yes \
+    --no-wait

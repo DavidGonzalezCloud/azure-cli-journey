@@ -1,8 +1,0 @@
-# Creacion de una Network Interface Card
-
-az network nic create \
-    --resource-group RG-Networking-Lab \
-    --name NIC-FrontEnd \
-    --vnet-name VNet-CloudJourney \
-    --subnet Subnet-FrontEnd \
-    --public-ip-address PIP-FrontEnd

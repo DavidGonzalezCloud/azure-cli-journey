@@ -1,0 +1,8 @@
+# Obtener la ip de nuestra VM.
+
+az vm show \
+    --resource-group RG-Networking-Lab \
+    --name VM-FrontEnd \
+    --show-details \
+    --query publicIps \
+    --output tsv

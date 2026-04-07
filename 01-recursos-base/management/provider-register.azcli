@@ -1,0 +1,17 @@
+# ==============================================================================
+# Azure Resource Providers (Proveedores de Recursos)
+# ==============================================================================
+# Un Resource Provider es la API subyacente de Azure encargada de gestionar y 
+# aprovisionar una familia específica de recursos (ej. Microsoft.Network para redes).
+# 
+# [Buena Práctica de Ingeniería]: 
+# En entornos de producción, NUNCA confíes en el auto-registro. Los proveedores 
+# deben registrarse explícitamente antes de ejecutar pipelines de CI/CD o 
+# herramientas de IaC (Terraform/Bicep). Esto previene fallos críticos si la 
+# identidad del pipeline (Service Principal) no tiene permisos globales de nivel 
+# 'Contributor' para alterar la configuración de la suscripción al vuelo.
+#
+# Comando base: az provider register --namespace <NombreDelProveedor>
+# ==============================================================================
+
+az provider register --namespace Microsoft.Network

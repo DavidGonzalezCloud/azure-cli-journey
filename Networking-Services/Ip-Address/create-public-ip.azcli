@@ -1,7 +1,0 @@
-#Creacion de una IP publica.
-
-az network public-ip create \
-    --resource-group RG-Networking-Lab \
-    --name PIP-FrontEnd \
-    --sku Standard \
-    --allocation-method Static
