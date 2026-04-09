@@ -1,0 +1,12 @@
+# Definimos las nuevas variables
+PROBE_NAME="probe-http"
+
+# Creamos el Sondeo de Salud (Health Probe)
+az network lb probe create \
+    --resource-group $RG_NAME \
+    --lb-name $ALB_NAME \
+    --name $PROBE_NAME \
+    --protocol tcp \
+    --port 80
+
+

@@ -165,7 +165,7 @@ for i in 1 2; do
         --image Ubuntu2204 \
         --admin-username azureuser \
         --generate-ssh-keys \
-        --custom-data cloud-init.yaml \
+        --custom-data ./config/cloud-init.yaml \
         --zone $i \
         --no-wait
 

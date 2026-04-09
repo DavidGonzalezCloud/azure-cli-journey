@@ -1,0 +1,8 @@
+# Sacamos una lista de las NICs conectadas en el backend.
+
+az network lb address-pool show \
+  --resource-group $RG_NAME \
+  --lb-name $ALB_NAME \
+  --name $BACKEND_POOL_NAME \
+  --query "loadBalancerBackendAddresses[].{Name:name, IPAddress:ipAddress, Subnet:subnet.id}" \
+  --output table

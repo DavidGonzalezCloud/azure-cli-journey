@@ -1,0 +1,17 @@
+# Definimos las variables para el Load Balancer
+RG_NAME="rg-estudio-alb"
+LOCATION="eastus"
+PIP_NAME="pip-frontend-alb"
+ALB_NAME="alb-estudio-standard"
+FRONTEND_NAME="FrontendIP"
+BACKEND_POOL_NAME="BackendPool-Web"
+
+az network lb create \
+    --resource-group $RG_NAME \
+    --name $ALB_NAME \
+    --sku Standard \
+    --public-ip-address $PIP_NAME \
+    --frontend-ip-name $FRONTEND_NAME \
+    --backend-pool-name $BACKEND_POOL_NAME
+
+

@@ -1,0 +1,6 @@
+az network nic ip-config update \
+    --resource-group $RG_NAME \
+    --nic-name nic-web-0 \
+    --name ipconfig1 \
+    --lb-name $ALB_NAME \
+    --lb-address-pools $BACKEND_POOL_NAME

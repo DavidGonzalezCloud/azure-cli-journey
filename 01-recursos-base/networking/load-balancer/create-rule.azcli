@@ -1,0 +1,15 @@
+# Definimos las nuevas variables
+RULE_NAME="rule-http"
+
+# Creamos la Regla de Balanceo (Load Balancing Rule)
+az network lb rule create \
+    --resource-group $RG_NAME \
+    --lb-name $ALB_NAME \
+    --name $RULE_NAME \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name $FRONTEND_NAME \
+    --backend-pool-name $BACKEND_POOL_NAME \
+    --probe-name $PROBE_NAME \
+    --disable-outbound-snat true
