@@ -1,0 +1,7 @@
+#cloud-config
+package_upgrade: true
+packages:
+  - apache2
+runcmd:
+  - echo "<h1>Bienvenido al Servidor Web de David - Proyecto CLI</h1><p>Desplegado con infraestructura como codigo en Azure.</p>" | sudo tee /var/www/html/index.html
+  - systemctl restart apache2

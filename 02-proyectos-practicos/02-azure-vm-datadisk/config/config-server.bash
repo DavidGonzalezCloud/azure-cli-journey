@@ -1,0 +1,32 @@
+# 1. OBTENIENDO DIRECCION IP DEL SERVIDOR
+echo "OBTENIENDO DIRECCION IP DEL SERVIDOR"
+az vm show -d -g ProyectoWeb-RG -n WebServer-VM --query publicIps -o tsv
+
+# 2. CONECTANDO CON VM CON SSH (CAMBIAR DIRECCION IP ANTES DE EJECUTAR)
+ssh azureuser@13.72.98.203
+
+# 3. VERIFICAMOS EL HARDWARE DE LA VM
+lsblk
+
+# 4. SI NO APARECE EL SDC EJECUTAMOS EL SIGUIENTE CODIGO
+sudo parted /dev/sdc --script mklabel gpt mkpart primary ext4 0% 100%
+
+# 5. VAMOS A DARLE FORMATO DE ARCHIVO DE LINUX (ext4)
+sudo mkfs.ext4 /dev/sdc1
+
+# 6. CREAR BODEGA DE DATOS SEGURA Y CONECTAMOS LA PARTICION
+sudo mkdir /datos
+sudo mount /dev/sdc1 /datos
+
+# 7. VERIFICAMOS EL ALMACENAMIENTO
+df -h
+
+# 8. EXTRAEMOS EL UUID A UNA VARIABLE PARA USARLO DESPUES
+UUID=$(sudo blkid -s UUID -o value /dev/sdc1)
+
+# 9. INYECTAMOS CONFIGURACION PARA QUE LINUX RECUERDE CONECTARSE AL DISCO DE DATOS
+echo "UUID=${UUID}   /datos   ext4   defaults,nofail   1   2" | sudo tee -a /etc/fstab
+
+# 10. OBLIGAMOS A LINUX A REGARDAR TODAS LAS CONFIGURACIONES DE MONTAJE
+sudo mount -a
+
