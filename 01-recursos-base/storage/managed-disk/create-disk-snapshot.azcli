@@ -1,0 +1,18 @@
+RG_NAME="rg-estudio-discos"
+LOCATION="eastus"
+SNAPSHOT_NAME="Snap-DataDisk-Lab-01-v1"
+NEW_DISK_NAME="DataDisk-Clone-01"
+
+# Usamos JMESPath (--query id) y formato TSV para extraer el texto puro sin comillas
+SNAPSHOT_ID=$(az snapshot show \
+  --resource-group $RG_NAME \
+  --name $SNAPSHOT_NAME \
+  --query id \
+  --output tsv)
+
+az disk create \
+    --resource-group $RG_NAME \
+    --name $NEW_DISK_NAME \
+    --source $SNAPSHOT_ID \
+    --sku StandardSSD_LRS \
+    --location $LOCATION

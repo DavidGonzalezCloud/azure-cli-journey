@@ -1,0 +1,22 @@
+# Creamos las variables que vamos a usar
+RG_NAME="rg-estudio-discos"
+LOCATION="eastus"
+DISK_NAME="DataDisk-Lab-01"
+
+# Creacion de Azure Managed Disk
+az disk create \
+    --resource-group $RG_NAME \
+    --name $DISK_NAME \
+    --location $LOCATION \
+    --sku StandardSSD_LRS \
+    --size-gb 4 
+
+
+DISK_NAME_PROD="DataDisk-Prod-ZRS"
+
+az disk create \
+  --resource-group $RG_NAME \
+  --name $DISK_NAME_PROD \
+  --sku Premium_ZRS \
+  --size-gb 4 \
+  --location $LOCATION

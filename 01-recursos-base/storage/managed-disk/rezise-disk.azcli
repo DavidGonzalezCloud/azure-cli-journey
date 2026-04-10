@@ -1,0 +1,7 @@
+RG_NAME="rg-estudio-discos"
+DISK_NAME="DataDisk-Lab-01"
+
+az disk update \
+  --resource-group $RG_NAME \
+  --name $DISK_NAME \
+  --size-gb 16

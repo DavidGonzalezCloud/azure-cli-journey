@@ -1,0 +1,6 @@
+RG_NAME="rg-estudio-discos"
+SNAPSHOT_NAME="Snap-DataDisk-Lab-01-v1"
+
+az snapshot delete \
+  --resource-group $RG_NAME \
+  --name $SNAPSHOT_NAME

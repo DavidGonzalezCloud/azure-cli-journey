@@ -1,0 +1,7 @@
+# 1. Auditoría del Disco Estándar (Standard SSD - LRS)
+# nombre, sku, IOPS y Throughput
+az disk show \
+  --resource-group $RG_NAME \
+  --name $DISK_NAME \
+  --query "{Nombre:name, Nivel:sku.name, Tamano_GB:diskSizeGB, IOPS_Asignados:diskIOPSReadWrite, Rendimiento_MBps:diskMBpsReadWrite}" \
+  --output table

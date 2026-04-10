@@ -1,0 +1,9 @@
+RG_NAME="rg-estudio-discos"
+SNAPSHOT_NAME="Snap-DataDisk-Lab-01-v1"
+DISK_NAME="DataDisk-Lab-01"
+
+az disk delete \
+  --resource-group $RG_NAME \
+  --name $NEW_DISK_NAME \
+  --yes
+
