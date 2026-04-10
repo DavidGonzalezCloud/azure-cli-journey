@@ -1,0 +1,16 @@
+# DEFINIMOS VARIBALES.
+# usamos esta variable para generar un nuevo al azar.
+# El nombre de nuestra cuenta de almacenamiento debe de ser unica en el mundo
+STORAGE_NAME="stjourney$RANDOM"
+RG_NAME="rg-storage-lab"
+LOCATION="eastus"
+
+
+az storage account create \
+    --resource-group $RG_NAME \
+    --name $STORAGE_NAME \
+    --location $LOCATION \
+    --sku Standard_LRS \
+    --access-tier Hot
+    --allow-blob-public-access true
+

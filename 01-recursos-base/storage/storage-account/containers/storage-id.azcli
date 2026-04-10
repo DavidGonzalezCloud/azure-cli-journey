@@ -1,0 +1,15 @@
+# Obtenemos el identificador exacto de tu Storage Account (El Scope)
+az storage account show \
+  --name $STORAGE_NAME \
+  --resource-group $RG_NAME \
+  --query id -o tsv
+
+
+# Guardamos el ID del storage en una variable.
+STORAGE_ID=$(az storage account show \
+  --name $STORAGE_NAME \
+  --resource-group $RG_NAME \
+  --query id -o tsv)
+
+
+

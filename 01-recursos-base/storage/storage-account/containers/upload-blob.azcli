@@ -1,0 +1,9 @@
+# Creación de un archivo local de prueba
+echo "<h1>Hola desde el Lago de Datos de Azure</h1>" > index.html
+
+az storage blob upload \
+    --account-name $STORAGE_NAME \
+    --container-name $CONTAINER_NAME \
+    --name "index.html" \
+    --file "index.html" \
+    --auth-mode login

@@ -1,0 +1,6 @@
+# Listar el contenido del contenedor en formato de tabla
+az storage blob list \
+  --account-name $STORAGE_NAME \
+  --container-name $CONTAINER_NAME \
+  --auth-mode login \
+  --output table

@@ -1,0 +1,8 @@
+# Cambiar el nivel de acceso del contenedor a "blob"
+az storage container set-permission \
+    --account-name $STORAGE_NAME \
+    --name $CONTAINER_NAME \
+    --public-access blob \
+    --auth-mode login
+
+    

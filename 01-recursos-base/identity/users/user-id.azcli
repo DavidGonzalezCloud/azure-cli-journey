@@ -1,0 +1,8 @@
+# Obtenemos tu identificador único de usuario en Azure (Object ID)
+
+az ad signed-in-user show \
+    --query id \
+    -o tsv
+
+# Guardamos el ID en una variable.
+USER_ID=$(az ad signed-in-user show --query id -o tsv)

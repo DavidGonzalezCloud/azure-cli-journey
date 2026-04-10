@@ -1,0 +1,14 @@
+# 1. Obtenemos tu identificador único de usuario en Azure (Object ID)
+USER_ID=$(az ad signed-in-user show --query id -o tsv)
+
+# 2. Obtenemos el identificador exacto de tu Storage Account (El Scope)
+STORAGE_ID=$(az storage account show \
+  --name $STORAGE_NAME \
+  --resource-group $RG_NAME \
+  --query id -o tsv)
+
+# 3. Te asignamos el rol de "Contribuidor de Datos" estrictamente sobre esta cuenta
+az role assignment create \
+  --role "Storage Blob Data Contributor" \
+  --assignee $USER_ID \
+  --scope $STORAGE_ID

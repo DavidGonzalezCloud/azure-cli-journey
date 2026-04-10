@@ -1,0 +1,7 @@
+# Obtener un URL de un blob dentro de un contenedor.
+az storage blob url \
+    --account-name $STORAGE_NAME \
+    --container-name $CONTAINER_NAME \
+    --name "index.html" \
+    --auth-mode login \
+    --output tsv

@@ -1,0 +1,8 @@
+# Variable para el nombre del contenedor
+CONTAINER_NAME="archivos-core"
+
+# Crear contenedor
+az storage container create \
+    --account-name $STORAGE_NAME \
+    --name $CONTAINER_NAME \
+    --auth-mode login

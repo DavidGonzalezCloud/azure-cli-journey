@@ -1,0 +1,7 @@
+# Antes de hacer publico los blobs dentro de un contenedor
+# Hay que permitir el acceso publico en la cuenta
+
+az storage account update \
+  --name $STORAGE_NAME \
+  --resource-group $RG_NAME \
+  --allow-blob-public-access true
