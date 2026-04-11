@@ -1,0 +1,9 @@
+az billing account list --output table
+
+# Obtenemos el name de la cuenta de billing
+az billing account list \
+    --query "[0].name" \
+    -o tsv
+
+# Guardamos el name de la billing acccount que queremos
+BILLING_ACCOUNT_ID=$(az billing account list --query "[0].name" -o tsv)

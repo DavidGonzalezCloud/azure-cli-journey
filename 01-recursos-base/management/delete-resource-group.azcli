@@ -1,4 +1,4 @@
 az group delete \
-    --name rg-portfolio-alb \
+    --name rg-storage-lab \
     --yes \
     --no-wait

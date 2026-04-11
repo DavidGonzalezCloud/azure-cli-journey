@@ -1,0 +1,9 @@
+# Obtenemos el ID de nuestra suscripcion.
+az account list \
+    --query "[?name=='Cloud Journey Dev'].id" \
+    -o tsv
+
+# Guardamos el ID de nuestra suscripcion en una variable
+SUBSCRIPTION_ID=(az account list \
+    --query "[?name=='Cloud Journey Dev'].id" \
+    -o tsv)

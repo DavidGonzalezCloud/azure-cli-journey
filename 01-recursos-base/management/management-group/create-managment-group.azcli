@@ -1,0 +1,5 @@
+# Crear un Management Group
+az account management-group create \
+    --name "mg-cloudjourney" \
+    --display-name "Cloud Journey Root"
+

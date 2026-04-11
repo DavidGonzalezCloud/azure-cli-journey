@@ -1,8 +1,18 @@
+# Antes de hacer publico los blobs dentro de un contenedor
+# Hay que permitir el acceso publico en la cuenta
+
+az storage account update \
+  --name $STORAGE_NAME \
+  --resource-group $RG_NAME \
+  --allow-blob-public-access true
+
+
 # Cambiar el nivel de acceso del contenedor a "blob"
+# para tener acceso con el url.
 az storage container set-permission \
     --account-name $STORAGE_NAME \
     --name $CONTAINER_NAME \
     --public-access blob \
-    --auth-mode login
+    --auth-mode key
 
     

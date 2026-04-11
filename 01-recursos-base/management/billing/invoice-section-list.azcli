@@ -1,0 +1,12 @@
+# Extraemos el ID de la seccion de facturacion
+# usando el Billing Account ID y el Billing profile ID.
+az billing invoice section list \
+    --account-name $BILLING_ACCOUNT_ID \
+    --profile-name $BILLING_PROFILE_ID \
+    --query "[0].name" -o tsv
+
+# Guardamos nuestro invoce section en una variable.
+INVOICE_SECTION_ID=$(az billing invoice section list \
+    --account-name $BILLING_ACCOUNT_ID \
+    --profile-name $BILLING_PROFILE_ID \
+    --query "[0].name" -o tsv)

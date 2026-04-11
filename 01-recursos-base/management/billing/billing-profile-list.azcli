@@ -1,0 +1,14 @@
+# Obtenemos la lista de  perfiles de facturacion del billing account.
+az billing profile list \
+    --account-name $BILLING_ACCOUNT_ID \
+    --output table
+
+# obtenemos el ID del perfil de facturacion que vamos a usar
+az billing profile list \
+    --account-name $BILLING_ACCOUNT_ID \
+    --query "[0].name"
+
+# Guardamos el ID del perfil de facturacion que vamos a usar en una variable.
+BILLING_PROFILE_ID=$(az billing profile list \
+    --account-name $BILLING_ACCOUNT_ID \
+    --query "[0].name" -o tsv)

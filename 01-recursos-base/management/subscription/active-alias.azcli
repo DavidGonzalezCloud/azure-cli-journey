@@ -1,0 +1,3 @@
+# Alias nos permite crear subscripciones.
+az extension add --name alias
+

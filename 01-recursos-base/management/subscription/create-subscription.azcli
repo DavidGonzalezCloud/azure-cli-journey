@@ -1,0 +1,8 @@
+
+# Antes de crear la suscripcion tenemos que crear el $BILLING SCOPE
+# Crear una suscripcion en Azure
+az account alias create \
+    --name "sub-cloudjourney-dev" \
+    --display-name "Cloud Journey Dev" \
+    --billing-scope $BILLING_SCOPE \
+    --workload "Production"

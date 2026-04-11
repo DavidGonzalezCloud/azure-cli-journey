@@ -1,0 +1,21 @@
+# Guardamos el name de la billing acccount que queremos
+BILLING_ACCOUNT_ID=$(az billing account list \
+    --query "[0].name" -o tsv)
+
+# Guardamos el ID del perfil de facturacion que vamos a usar en una variable.
+BILLING_PROFILE_ID=$(az billing profile list \
+    --account-name $BILLING_ACCOUNT_ID \
+    --query "[0].name" -o tsv)
+
+# Guardamos nuestro invoce section en una variable.
+INVOICE_SECTION_ID=$(az billing invoice section list \
+    --account-name $BILLING_ACCOUNT_ID \
+    --profile-name $BILLING_PROFILE_ID \
+    --query "[0].name" -o tsv)
+
+# Construir y guardar el Scope completo en una sola variable
+BILLING_SCOPE="/providers/Microsoft.Billing/billingAccounts/$BILLING_ACCOUNT_ID/billingProfiles/$BILLING_PROFILE_ID/invoiceSections/$INVOICE_SECTION_ID"
+
+# Verificar el resultado final
+echo "Tu Billing Scope es:"
+echo $BILLING_SCOPE
