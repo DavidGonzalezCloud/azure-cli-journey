@@ -1,0 +1,6 @@
+RG_NAME="rg-cloudjourney-core"
+
+az group delete \
+    --name $RG_NAME\
+    --yes \
+    --no-wait

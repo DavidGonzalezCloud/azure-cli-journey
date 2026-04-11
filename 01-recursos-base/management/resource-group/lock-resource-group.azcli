@@ -1,0 +1,13 @@
+# Guardamos el nombre del RG que queremos bloquear.
+RG_NAME="rg-cloudjourney-core"
+
+# Aplicar bloqueos para evitar que el RG sea eliminado.
+az lock create \
+    --name "lock-core-prod-protection" \
+    --lock-type CanNotDelete \ # permite leer y modificar el recurso
+    --resource-group $RG_NAME
+
+az lock create \
+    --name "lock-core-prod-protection" \
+    --lock-type ReadOnly \ # No permite modificar, solo leer.
+    --resource-group $RG_NAME

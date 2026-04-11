@@ -1,0 +1,14 @@
+# Obtener nombre de Management Group
+MG_NAME=$(az account management-group list \
+    --query "[1].name" \
+    -o tsv)
+
+# Guardamos el ID de nuestra suscripcion en una variable
+SUB_ID=$(az account list \
+    --query "[?name=='Cloud Journey Dev'].id" \
+    -o tsv)
+
+# Mover la suscripcion al nuevo Management group
+az account management-group subscription add \
+    --name $MG_NAME \
+    --subscription $SUB_ID

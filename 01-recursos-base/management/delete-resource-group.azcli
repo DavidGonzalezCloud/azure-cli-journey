@@ -1,4 +1,0 @@
-az group delete \
-    --name rg-storage-lab \
-    --yes \
-    --no-wait

@@ -1,0 +1,3 @@
+# Eliminar un Management Group
+az account management-group delete \
+  --name "mg-cloudjourney"

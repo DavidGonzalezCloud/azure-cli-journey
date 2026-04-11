@@ -1,0 +1,10 @@
+# Guardamos el ID de nuestra suscripcion en una variable
+SUB_ID=$(az account list \
+    --query "[?name=='Cloud Journey Dev'].id" \
+    -o tsv)
+
+# Cancelamos nuestra subscription
+# La subscription queda en modo solo lectura por un periodo de 30 dias
+# Despues de los 30 dias se borra
+az account subscription cancel \
+  --id $SUB_ID

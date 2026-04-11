@@ -1,0 +1,13 @@
+# Definir variables para mantener las buenas prácticas
+RG_NAME="rg-cloudjourney-core"
+LOCATION="eastus"
+
+# Crear el Resource Group
+az group create \
+  --name $RG_NAME \
+  --location $LOCATION \
+  --output table
+
+# Listar los grupos de recursos creados en la suscripción activa
+az group list \
+    --output table

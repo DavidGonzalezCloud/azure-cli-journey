@@ -1,0 +1,7 @@
+RG_NAME="rg-cloudjourney-core"
+LOCK_NAME="lock-core-prod-protection"
+
+# Eliminamos el Lock del recurso
+az lock delete \
+    --resource-group $RG_NAME \
+    --name $LOCK_NAME
