@@ -1,0 +1,7 @@
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+runcmd:
+  - echo "<h1>Bienvenido al Cluster Elastico de David | Nivel Enterprise</h1>" > /var/www/html/index.html
+  - systemctl restart nginx
